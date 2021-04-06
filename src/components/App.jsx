@@ -10,29 +10,35 @@ function App() {
     const { name, value } = event.target;
 
     setContact((previousContact) => {
-      switch (name) {
-        case "fName":
-          return {
-            fName: value,
-            lName: previousContact.lName,
-            email: previousContact.email
-          };
-        case "lName":
-          return {
-            fName: previousContact.fName,
-            lName: value,
-            email: previousContact.email
-          };
-        case "email":
-          return {
-            fName: previousContact.fName,
-            lName: previousContact.lName,
-            email: value
-          };
+      // switch (name) {
+      //   case "fName":
+      //     return {
+      //       fName: value,
+      //       lName: previousContact.lName,
+      //       email: previousContact.email
+      //     };
+      //   case "lName":
+      //     return {
+      //       fName: previousContact.fName,
+      //       lName: value,
+      //       email: previousContact.email
+      //     };
+      //   case "email":
+      //     return {
+      //       fName: previousContact.fName,
+      //       lName: previousContact.lName,
+      //       email: value
+      //     };
 
-        default:
-          break;
-      }
+      //   default:
+      //     break;
+      // }
+
+      return {
+        ...previousContact,
+        [name]: value //does same thing as the switch statements above destructures the object and modifies the changing content
+        // []is a must else will be treated as adding a new property to the object
+      };
     });
   }
   return (
